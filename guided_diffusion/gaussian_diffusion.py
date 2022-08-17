@@ -625,7 +625,7 @@ class GaussianDiffusion:
             # Lazy import so that we don't depend on tqdm.
             from tqdm.auto import tqdm
 
-            indices = tqdm(indices)
+            indices = tqdm(indices, desc="Steps")
 
         for i in indices:
             t = th.tensor([i] * shape[0], device=device)
@@ -897,7 +897,7 @@ class GaussianDiffusion:
         if progress:
             # Lazy import so that we don't depend on tqdm.
             from tqdm.auto import tqdm
-            indices = tqdm(indices)
+            indices = tqdm(indices, desc="Steps")
 
         if inpainting_mode and skip_timesteps_orig is None:
             skip_timesteps_orig = self.num_timesteps
@@ -1112,7 +1112,7 @@ class GaussianDiffusion:
             # Lazy import so that we don't depend on tqdm.
             from tqdm.auto import tqdm
 
-            indices = tqdm(indices)
+            indices = tqdm(indices, desc="Steps")
 
         old_out = None
 
